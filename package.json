@@ -4,7 +4,8 @@
   "description": "A package for mutating data in a genetic way.",
   "main": "index.js",
   "scripts": {
-    "test": "ts-node --project ./tsconfig.json node_modules/jasmine/bin/jasmine --config=spec/support/jasmine.json"
+    "test": "ts-node --project ./tsconfig.json node_modules/jasmine/bin/jasmine --config=spec/support/jasmine.json",
+    "build": "ts-node node_modules/typescript/bin/tsc -p tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -14,7 +15,9 @@
   "license": "ISC",
   "devDependencies": {
     "@types/jasmine": "^3.3.13",
+    "@types/lodash": "^4.14.134",
     "jasmine": "^3.4.0",
+    "lodash": "^4.17.11",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.2"
   }

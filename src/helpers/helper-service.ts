@@ -3,7 +3,6 @@ export class HelperService {
     lowestChar = 33;
     highestChar = 126;
 
-
     constructor() { }
 
     createPopulationOfStrings(numberOfAgents: number, initialStringLength: number): any[] {

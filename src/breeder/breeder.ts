@@ -1,13 +1,10 @@
-import { HelperService } from '../helpers/helper-service';
 import { Agent } from '../agent/agent';
 
 export class Breeder {
 
     population: any[] = [];
-    helperService: HelperService;
 
-    constructor(_helperService: HelperService) {
-        this.helperService = _helperService;
+    constructor() {
     }
 
     createPopulation(numAgents: number): void {

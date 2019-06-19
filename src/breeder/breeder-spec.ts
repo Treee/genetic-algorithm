@@ -1,13 +1,11 @@
 import { Breeder } from './breeder';
-import { HelperService } from '../helpers/helper-service';
 import { Agent } from '../agent/agent';
 
 describe('Breeder', () => {
     let breeder: Breeder;
-    const helperService: HelperService = new HelperService();
 
     beforeEach(() => {
-        breeder = new Breeder(helperService);
+        breeder = new Breeder();
     });
 
     it('has a population of agents', () => {

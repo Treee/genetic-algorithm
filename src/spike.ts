@@ -1,4 +1,4 @@
-import { HelperService } from './helper-service';
+import { HelperService } from './helpers/helper-service';
 import _ from 'lodash';
 
 export class StringGeneratorComponent {

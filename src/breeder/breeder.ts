@@ -28,4 +28,16 @@ export class Breeder {
     compare(a: Agent, b: Agent): number {
         return a.getFitness() - b.getFitness();
     }
+
+    selectNextGeneration(maxPopulationSize: number, customSelectFn?: () => Agent[]): Agent[] {
+        let tempPopulation = this.population.slice(0, maxPopulationSize);
+        if (!!customSelectFn && typeof customSelectFn === 'function') {
+            tempPopulation = customSelectFn();
+        }
+        return tempPopulation;
+    }
+
+    mate(parentA: Agent, parentB: Agent): Agent {
+        return new Agent();
+    }
 }

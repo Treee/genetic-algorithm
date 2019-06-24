@@ -37,7 +37,11 @@ export class Breeder {
         return tempPopulation;
     }
 
+    matePopulation(): Agent[] {
+        return [];
+    }
+
     mate(parentA: Agent, parentB: Agent): Agent {
-        return new Agent();
+        return parentA.mateWith(parentB);
     }
 }

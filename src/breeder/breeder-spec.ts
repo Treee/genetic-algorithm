@@ -18,7 +18,11 @@ describe('Breeder', () => {
     });
 
     describe('Compute Fitness', () => {
-
+        it('ranks agents based on a fitness', () => {
+            const agentA = new Agent('aaa');
+            const agentB = new Agent('bbb');
+            expect(agentB.getFitness()).toBeGreaterThan(agentA.getFitness());
+        });
     });
 
     describe('Rank Population', () => {
@@ -56,10 +60,14 @@ describe('Breeder', () => {
             expect(child).not.toEqual(parentA);
             expect(child).not.toEqual(parentB);
         });
-    });
 
-    describe('Mutate agents', () => {
-
+        it('returns an agent with some of the parents genes', () => {
+            const parentA = new Agent('aaaaa');
+            const parentB = new Agent('zzzzz');
+            const child = breeder.mate(parentA, parentB);
+            expect(child.dna.indexOf('a')).toBeGreaterThanOrEqual(0);
+            expect(child.dna.indexOf('z')).toBeGreaterThanOrEqual(0);
+        });
     });
 
 });

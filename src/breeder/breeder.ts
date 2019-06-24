@@ -2,7 +2,7 @@ import { Agent } from '../agent/agent';
 
 export class Breeder {
 
-    population: any[] = [];
+    population: Agent[] = [];
 
     constructor() {
     }
@@ -42,7 +42,18 @@ export class Breeder {
         if (!!customCrossoverFn && typeof customCrossoverFn === 'function') {
             tempPopulation = customCrossoverFn();
         }
-
+        else {
+            let newChildren = [];
+            for (let index = 0; index < tempPopulation.length - 1; index += 2) {
+                let parentAIndex = index;
+                let parentBIndex = index + 1;
+                let child1 = tempPopulation[parentAIndex].mateWith(tempPopulation[parentBIndex]);
+                let child2 = tempPopulation[parentBIndex].mateWith(tempPopulation[parentAIndex]);
+                newChildren.push(child1);
+                newChildren.push(child2);
+            }
+            tempPopulation = tempPopulation.concat(newChildren);
+        }
         return tempPopulation;
     }
 

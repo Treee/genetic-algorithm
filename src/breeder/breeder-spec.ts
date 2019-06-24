@@ -53,7 +53,6 @@ describe('Breeder', () => {
     describe('Crossover population (mate)', () => {
         it('breeds the current population, resulting in more agents than what we started with', () => {
             const numAgents = 25;
-
             breeder.createPopulation(numAgents);
             const bredPopulation = breeder.matePopulation();
             expect(bredPopulation.length).toBeGreaterThan(numAgents);

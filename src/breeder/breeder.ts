@@ -37,11 +37,13 @@ export class Breeder {
         return tempPopulation;
     }
 
-    matePopulation(): Agent[] {
-        return [];
+    matePopulation(customCrossoverFn?: () => Agent[]): Agent[] {
+        let tempPopulation = this.population.slice(0);
+        if (!!customCrossoverFn && typeof customCrossoverFn === 'function') {
+            tempPopulation = customCrossoverFn();
+        }
+
+        return tempPopulation;
     }
 
-    mate(parentA: Agent, parentB: Agent): Agent {
-        return parentA.mateWith(parentB);
-    }
 }

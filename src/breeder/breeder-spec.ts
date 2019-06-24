@@ -50,23 +50,13 @@ describe('Breeder', () => {
         });
     });
 
-    describe('Crossover genes (mate)', () => {
-        it('can mate two agents', () => {
-            const parentA = new Agent('aaaaa');
-            const parentB = new Agent('zzzzz');
-            const child = breeder.mate(parentA, parentB);
-            expect(child).toBeDefined();
-            expect(child).not.toBeNull();
-            expect(child).not.toEqual(parentA);
-            expect(child).not.toEqual(parentB);
-        });
+    describe('Crossover population (mate)', () => {
+        it('breeds the current population, resulting in more agents than what we started with', () => {
+            const numAgents = 25;
 
-        it('returns an agent with some of the parents genes', () => {
-            const parentA = new Agent('aaaaa');
-            const parentB = new Agent('zzzzz');
-            const child = breeder.mate(parentA, parentB);
-            expect(child.dna.indexOf('a')).toBeGreaterThanOrEqual(0);
-            expect(child.dna.indexOf('z')).toBeGreaterThanOrEqual(0);
+            breeder.createPopulation(numAgents);
+            const bredPopulation = breeder.matePopulation();
+            expect(bredPopulation.length).toBeGreaterThan(numAgents);
         });
     });
 

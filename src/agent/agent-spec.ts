@@ -12,6 +12,12 @@ describe('Agent', () => {
         expect(agent.dna).not.toBeNull();
     });
 
+    it('can be given specific dna', () => {
+        expect(agent.dna).toEqual('');
+        agent = new Agent('test dna');
+        expect(agent.dna).toEqual('test dna');
+    });
+
     it('has a fitness score based on the dna', () => {
         const agentA = new Agent('aaa');
         const agentB = new Agent('bbb');

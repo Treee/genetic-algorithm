@@ -7,10 +7,15 @@ export class Breeder {
     constructor() {
     }
 
-    createPopulation(numAgents: number): void {
+    createPopulation(numAgents: number, data: { dna: string; }[] = []): void {
         this.population = [];
         for (let index = numAgents; index > 0; index--) {
             this.population.push(new Agent());
+        }
+        if (data && data.length > 0) {
+            for (let index = 0; index < Math.min(data.length, numAgents); index++) {
+                this.population[index].dna = data[index].dna;
+            }
         }
     }
 

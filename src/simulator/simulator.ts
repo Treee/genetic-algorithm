@@ -16,11 +16,14 @@ export class Simulator {
 
     simulateGeneration() {
         let currentGeneration = this.breeder.selectNextGeneration(20);
+        //console.log('first', currentGeneration);
         currentGeneration = this.breeder.matePopulation();
         // mutate todo
 
 
         currentGeneration = this.breeder.rankPopulation();
+        //console.log('last', currentGeneration);
+
         return currentGeneration;
     }
 }

@@ -3,6 +3,33 @@ import { Agent } from '../agent/agent';
 
 describe('Breeder', () => {
     let breeder: Breeder;
+    const agentConfig = [
+        { dna: 'test' },
+        { dna: 'dasfagw' },
+        { dna: 'foo' },
+        { dna: 'another test' },
+        { dna: 'testy' },
+        { dna: 'testycle' },
+        { dna: 'tasty' },
+        { dna: 'tasty1' },
+        { dna: 'tasty2' },
+        { dna: 'risk aversion' },
+        { dna: 'what' },
+        { dna: 'extra spicy' },
+        { dna: 'toodles' },
+        { dna: 'imaginary' },
+        { dna: 'discrete' },
+        { dna: 'conjecture' },
+        { dna: 'sensitivity' },
+        { dna: 'sapce' },
+        { dna: 'host' },
+        { dna: 'on' },
+        { dna: 'hotdog' },
+        { dna: 'lettuce' },
+        { dna: 'bob' },
+        { dna: 'silence' },
+        { dna: 'hi' },
+    ];
 
     beforeEach(() => {
         breeder = new Breeder();
@@ -14,6 +41,19 @@ describe('Breeder', () => {
             const numAgents = 10;
             breeder.createPopulation(numAgents);
             expect(breeder.population.length).toBeGreaterThan(0);
+        });
+
+        it('generates a population from a template', () => {
+            const agentTemplate = [
+                { dna: 'testone' },
+                { dna: 'another test' }
+            ];
+
+            const numAgents = 10;
+            breeder.createPopulation(numAgents, agentTemplate);
+            expect(breeder.population[0].dna).toEqual('testone');
+            expect(breeder.population[1].dna).toEqual('another test');
+            expect(breeder.population[5].dna).toEqual('');
         });
     });
 
@@ -53,7 +93,7 @@ describe('Breeder', () => {
     describe('Crossover population (mate)', () => {
         it('breeds the current population, resulting in more agents than what we started with', () => {
             const numAgents = 25;
-            breeder.createPopulation(numAgents);
+            breeder.createPopulation(numAgents, agentConfig);
             const bredPopulation = breeder.matePopulation();
             expect(bredPopulation.length).toBeGreaterThan(numAgents);
         });

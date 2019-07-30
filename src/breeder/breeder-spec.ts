@@ -59,4 +59,10 @@ describe('Breeder', () => {
         });
     });
 
+    describe('Mutate population', () => {
+        it('can mutate a population based on a chance', () => {
+
+        });
+    });
+
 });
